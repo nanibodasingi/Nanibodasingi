@@ -1,16 +1,25 @@
-### Hi there 👋
+const calculateTemp = () => {
+    const inputTemp = document.getElementById('temp').value;
 
-<!--
-**nanibodasingi/Nanibodasingi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+    const tempSelected = document.getElementById('temp_diff');
+    const valueTemp = temp_diff.options[tempSelected.selectedIndex].value;
 
-Here are some ideas to get you started:
+    // Celsius to Fahrenheit
+    const celToFah = (cel) => {
+        let fahrenheit = ((cel * 9 / 5) + 32).toFixed(1);
+        return fahrenheit;
+    }
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+    // Fahrenheit to Celsius
+    const fahToCel = (fah) => {
+        let celsius = ((fah - 32) * 5 / 9).toFixed(1);
+        return celsius;
+    }
+
+    if (valueTemp == 'cel') {
+        document.getElementById("result").innerHTML = celToFah(inputTemp) + "&#176; Fahrenheit";
+    }
+    else {
+        document.getElementById("result").innerHTML = fahToCel(inputTemp) + "&#176; Celsius";
+    }
+    }
